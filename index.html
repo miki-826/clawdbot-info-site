@@ -8,12 +8,13 @@
         :root {
             --primary: #ff4757;
             --secondary: #2f3542;
+            --accent: #ffa502;
             --bg: #f1f2f6;
             --text: #2f3542;
             --white: #ffffff;
         }
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg);
@@ -32,13 +33,13 @@
             color: var(--primary);
         }
         .hero {
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
             background: linear-gradient(135deg, var(--primary), #ff6b81);
             color: var(--white);
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
         }
         .container {
@@ -46,11 +47,18 @@
             margin: 0 auto;
             padding: 2rem;
         }
+        section {
+            margin-bottom: 4rem;
+        }
+        h2 {
+            border-left: 5px solid var(--primary);
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+        }
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
         .feature-card {
             background: var(--white);
@@ -65,6 +73,30 @@
         .feature-card h3 {
             color: var(--primary);
             margin-top: 0;
+        }
+        .pro-tips {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+        }
+        .pro-tips h2 {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        .tip-list {
+            list-style: none;
+            padding: 0;
+        }
+        .tip-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        .tip-list li::before {
+            content: '💡';
+            position: absolute;
+            left: 0;
         }
         footer {
             text-align: center;
@@ -106,6 +138,28 @@
                     <p>Discord、WhatsApp、LINEなど、あなたが普段使っているツールからいつでも呼び出せます。</p>
                 </div>
             </div>
+        </section>
+
+        <section class="pro-tips">
+            <h2>Clawdbotを効率的に使う方法</h2>
+            <ul class="tip-list">
+                <li>
+                    <strong>外部ツールとの連携を許可する:</strong>
+                    GmailやGitHubの認証を済ませることで、Clawdbotの真の力が解放されます。「あとは任せた」が実現します。
+                </li>
+                <li>
+                    <strong>具体的な指示を与える:</strong>
+                    「整理して」よりも「拡張子ごとにフォルダを分けて、3ヶ月以上前のものは古いフォルダに移動して」と伝えると、より正確に動作します。
+                </li>
+                <li>
+                    <strong>SSHで自宅サーバーを繋ぐ:</strong>
+                    自宅の環境を教えることで、ファイルのバックアップやサーバー構築など、インフラ管理の相棒になります。
+                </li>
+                <li>
+                    <strong>進捗報告を活用する:</strong>
+                    時間がかかる作業は、Clawdbotが1分ごとに進捗を報告します。安心して他の作業に集中してください。
+                </li>
+            </ul>
         </section>
     </div>
 
