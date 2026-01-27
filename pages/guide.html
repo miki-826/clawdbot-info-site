@@ -20,6 +20,18 @@
             font-weight: bold;
             margin-bottom: 1rem;
         }
+        pre {
+            background-color: #f1f3f5;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .cost-box {
+            background-color: #fff9db;
+            border-left: 5px solid #fab005;
+            padding: 20px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -45,29 +57,59 @@
         
         <div class="row g-5">
             <div class="col-lg-8 mx-auto">
+                <!-- Getting Started -->
                 <section class="mb-5">
-                    <h2 class="h3 mb-4 border-start border-danger border-4 ps-3">始め方 3ステップ</h2>
-                    <div class="row text-center">
-                        <div class="col-md-4">
-                            <div class="step-number mx-auto">1</div>
-                            <h5>サーバーの起動</h5>
-                            <p class="small text-muted">Clawdbotをあなたの環境でセットアップし、バックグラウンドで起動させます。</p>
+                    <h2 class="h3 mb-4 border-start border-danger border-4 ps-3">詳細な導入ステップ</h2>
+                    
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="step-number me-3 mb-0">1</div>
+                            <h5 class="mb-0">インストールと起動</h5>
                         </div>
-                        <div class="col-md-4">
-                            <div class="step-number mx-auto">2</div>
-                            <h5>プラットフォーム連携</h5>
-                            <p class="small text-muted">DiscordやSignalなど、あなたが普段使うツールと接続します。</p>
+                        <p>ClawdbotはNode.js環境で動作します。端末（ターミナル）で以下のコマンドを実行して起動します。</p>
+                        <pre><code># Clawdbotを起動する
+clawdbot gateway start
+
+# ステータスを確認する
+clawdbot status</code></pre>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="step-number me-3 mb-0">2</div>
+                            <h5 class="mb-0">プロバイダーの設定</h5>
                         </div>
-                        <div class="col-md-4">
-                            <div class="step-number mx-auto">3</div>
-                            <h5>指示を出す</h5>
-                            <p class="small text-muted">あとは話しかけるだけ。Clawdbotがあなたの要望に応えます。</p>
+                        <p>Discordなどのチャットツールと連携させるために、設定ファイル（config）を編集します。コマンドで直接設定することも可能です。</p>
+                        <pre><code># Discordを有効にする例
+clawdbot config set discord.enabled true</code></pre>
+                    </div>
+
+                    <div>
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="step-number me-3 mb-0">3</div>
+                            <h5 class="mb-0">AIモデルの選択</h5>
                         </div>
+                        <p>使用するAI（GeminiやClaudeなど）を設定します。APIキーをセットすることで、Clawdbotが思考を開始します。</p>
                     </div>
                 </section>
 
+                <!-- Costs -->
                 <section class="mb-5">
-                    <h2 class="h3 mb-4 border-start border-danger border-4 ps-3">便利な指示（プロンプト）の例</h2>
+                    <h2 class="h3 mb-4 border-start border-danger border-4 ps-3">気になるコスト（料金）について</h2>
+                    <div class="cost-box">
+                        <p>Clawdbot自体の利用はオープンソースのため無料ですが、以下の外部コストが発生する場合があります：</p>
+                        <ul>
+                            <li><strong>AI API利用料</strong>: AIモデル（Gemini, Claude, GPT等）の利用量に応じた従量課金。</li>
+                            <li><strong>サーバー電気代</strong>: 自宅サーバーで24時間稼働させる場合の電気代。</li>
+                            <li><strong>外部サービス</strong>: 有料の外部ツール（Notionの特定プランなど）を連携させる場合。</li>
+                        </ul>
+                        <p class="mb-0 small text-muted">※Geminiなどの無料枠を活用することで、コストを最小限に抑えることも可能です。</p>
+                    </div>
+                </section>
+
+                <!-- Prompt Examples -->
+                <section class="mb-5">
+                    <h2 class="h3 mb-4 border-start border-danger border-4 ps-3">便利な指示の例</h2>
                     <div class="list-group list-group-flush shadow-sm rounded-4 overflow-hidden">
                         <div class="list-group-item p-4">
                             <h6>🔍 調査の依頼</h6>
