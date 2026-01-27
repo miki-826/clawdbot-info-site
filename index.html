@@ -7,6 +7,45 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .terminal-window {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            overflow: hidden;
+            text-align: left;
+            margin-top: 30px;
+        }
+        .terminal-header {
+            background: #323232;
+            padding: 10px 15px;
+            display: flex;
+            gap: 8px;
+        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+        .terminal-body {
+            padding: 20px;
+            min-height: 200px;
+            font-size: 0.95rem;
+        }
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background: #d4d4d4;
+            margin-left: 5px;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+        .command-text { color: #b5cea8; }
+        .output-text { color: #9cdcfe; }
+    </style>
 </head>
 <body>
 
@@ -33,9 +72,27 @@
         <div class="container">
             <h1 class="display-3 fw-bold animate__animated animate__zoomIn">未来のアシスタント、今ここに。</h1>
             <p class="lead mb-4 animate__animated animate__fadeInUp">Clawdbotは、あなたの代わりに「動く」AIパーソナルアシスタントです。</p>
-            <div class="d-flex justify-content-center gap-3">
+            <div class="d-flex justify-content-center gap-3 mb-5">
                 <a href="pages/features.html" class="btn btn-light btn-lg px-4 rounded-pill shadow animate__animated animate__bounceIn">機能を詳しく</a>
                 <a href="pages/guide.html" class="btn btn-outline-light btn-lg px-4 rounded-pill animate__animated animate__bounceIn">使い方を見る</a>
+            </div>
+
+            <!-- Interactive Terminal Simulation -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="terminal-window animate__animated animate__fadeInUp animate__delay-1s">
+                        <div class="terminal-header">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                            <span class="ms-2 small text-muted">clawdbot — simulation</span>
+                        </div>
+                        <div class="terminal-body" id="terminal-content">
+                            <div><span class="text-success">$</span> <span id="typing-area"></span><span class="cursor"></span></div>
+                            <div id="output-area" class="mt-2"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -65,5 +122,41 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const terminalContent = [
+            { cmd: "clawdbot status", output: "Status: ONLINE\nAgent: Pi\nLocation: Tokyo, Japan" },
+            { cmd: "search 'latest AI news'", output: "Searching... Found 3 articles.\n1. Gemini 3 released\n2. Agentic AI is the future\n3. Clawdbot updates multi-page site" },
+            { cmd: "organize ~/Downloads --by type", output: "Processing files...\n- Moved 5 PDFs to 'Documents'\n- Moved 3 Images to 'Pictures'\nDone!" }
+        ];
+
+        let contentIndex = 0;
+        const typingArea = document.getElementById('typing-area');
+        const outputArea = document.getElementById('output-area');
+
+        function typeCommand() {
+            const item = terminalContent[contentIndex];
+            let charIndex = 0;
+            typingArea.textContent = "";
+            outputArea.innerHTML = "";
+
+            const timer = setInterval(() => {
+                if (charIndex < item.cmd.length) {
+                    typingArea.textContent += item.cmd.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    clearInterval(timer);
+                    setTimeout(() => {
+                        outputArea.innerHTML = `<pre class="output-text mb-0">${item.output}</pre>`;
+                        contentIndex = (contentIndex + 1) % terminalContent.length;
+                        setTimeout(typeCommand, 3000);
+                    }, 500);
+                }
+            }, 100);
+        }
+
+        window.onload = () => {
+            setTimeout(typeCommand, 1500);
+        };
+    </script>
 </body>
 </html>
