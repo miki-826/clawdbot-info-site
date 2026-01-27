@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clawdbot - あなただけのパーソナルAIアシスタント</title>
+    <style>
+        :root {
+            --primary: #ff4757;
+            --secondary: #2f3542;
+            --bg: #f1f2f6;
+            --text: #2f3542;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), #ff6b81);
+            color: var(--white);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background: var(--secondary);
+            color: var(--white);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🦞 Clawdbot</div>
+    </header>
+
+    <section class="hero">
+        <h1>未来のアシスタント、今ここに。</h1>
+        <p>Clawdbotは、単なるチャットボットではありません。あなたの代わりに「動く」AIです。</p>
+    </section>
+
+    <div class="container">
+        <section>
+            <h2>Clawdbotでできること</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>💻 コーディング & 開発</h3>
+                    <p>自宅サーバーにアクセスしてコードを書いたり、GitHubと連携してリポジトリを管理したりできます。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📧 スマートな秘書業務</h3>
+                    <p>Gmailの読み書きや、Googleカレンダーの予定管理をあなたの代わりにスマートに行います。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📂 サーバー・ファイル管理</h3>
+                    <p>散らかったサーバーのファイル整理や、自動的なバックアップ体制の構築も得意です。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🤖 常にそばに</h3>
+                    <p>Discord、WhatsApp、LINEなど、あなたが普段使っているツールからいつでも呼び出せます。</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Clawdbot Powered by miki-826</p>
+    </footer>
+</body>
+</html>
