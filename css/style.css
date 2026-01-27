@@ -1,0 +1,64 @@
+:root {
+    --primary-color: #ff4757;
+    --secondary-color: #2f3542;
+    --accent-color: #ffa502;
+    --bg-light: #f8f9fa;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    scroll-behavior: smooth;
+    background-color: var(--bg-light);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: var(--primary-color) !important;
+    font-size: 1.5rem;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), #ff6b81);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.feature-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    background: white;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.pro-tips-section {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 80px 0;
+    border-radius: 30px;
+    margin: 50px 0;
+}
+
+.tip-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: rgba(255,255,255,0.7);
+    padding: 40px 0;
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+}
