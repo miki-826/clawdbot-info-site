@@ -1,64 +1,187 @@
 :root {
     --primary-color: #ff4757;
+    --primary-hover: #e84118;
     --secondary-color: #2f3542;
     --accent-color: #ffa502;
     --bg-light: #f8f9fa;
+    --text-dark: #2f3542;
+    --text-muted: #747d8c;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-    scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
     background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+/* Navbar Modernization */
+.navbar {
+    backdrop-filter: blur(10px);
+    background: var(--glass-bg) !important;
+    padding: 1rem 0;
+    transition: var(--transition);
 }
 
 .navbar-brand {
-    font-weight: bold;
+    font-weight: 800;
     color: var(--primary-color) !important;
     font-size: 1.5rem;
+    letter-spacing: -0.5px;
 }
 
-.hero-section {
-    background: linear-gradient(135deg, var(--primary-color), #ff6b81);
-    color: white;
-    padding: 100px 0;
-    text-align: center;
+.nav-link {
+    font-weight: 500;
+    margin: 0 10px;
+    position: relative;
 }
 
-.feature-card {
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    height: 100%;
-    background: white;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
 }
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-}
-
-.pro-tips-section {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 80px 0;
-    border-radius: 30px;
-    margin: 50px 0;
-}
-
-.tip-icon {
-    font-size: 2rem;
-    color: var(--accent-color);
-    margin-bottom: 15px;
-}
-
-footer {
-    background-color: var(--secondary-color);
-    color: rgba(255,255,255,0.7);
-    padding: 40px 0;
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
 }
 
 .nav-link.active {
     color: var(--primary-color) !important;
-    font-weight: bold;
+}
+
+/* Hero Section Enhancement */
+.hero-section {
+    background: radial-gradient(circle at top right, #ff6b81, var(--primary-color));
+    color: white;
+    padding: 120px 0 160px;
+    position: relative;
+    clip-path: ellipse(150% 100% at 50% 0%);
+}
+
+.hero-section .btn-light {
+    color: var(--primary-color);
+    font-weight: 600;
+    border: none;
+}
+
+.hero-section .btn-light:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+/* Terminal Styling */
+.terminal-window {
+    background: #1e1e2e;
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.terminal-header {
+    background: #181825;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Cards & Interaction */
+.card-hover-effect {
+    transition: var(--transition);
+    border: none;
+    background: white;
+}
+
+.card-hover-effect:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 71, 87, 0.1);
+    color: var(--primary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Guide Specifics */
+.step-card {
+    border-left: 4px solid var(--primary-color);
+    background: white;
+    padding: 2rem;
+    border-radius: 0 12px 12px 0;
+    box-shadow: var(--card-shadow);
+}
+
+.code-block {
+    background: #282c34;
+    color: #abb2bf;
+    padding: 1.5rem;
+    border-radius: 10px;
+    position: relative;
+    font-family: 'Fira Code', monospace;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    opacity: 0.6;
+}
+
+.copy-btn:hover {
+    opacity: 1;
+}
+
+/* Sections */
+.section-title {
+    font-weight: 800;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    bottom: -10px;
+    left: 0;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: #a4b0be;
+    padding: 60px 0 30px;
+    margin-top: 80px;
+}
+
+.footer-link {
+    color: #a4b0be;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-link:hover {
+    color: white;
 }
