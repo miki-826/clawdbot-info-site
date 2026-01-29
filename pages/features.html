@@ -4,99 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Clawdbotの多彩な機能 - システム操作、ブラウジング、ワークスペース連携、自動化。">
-    <title>機能紹介 - Clawdbot</title>
+    <title>機能紹介 | Clawdbot</title>
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="bg-light">
 
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg nav-custom sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">🦞 Clawdbot</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="brand-logo" href="../index.html">
+                <i class="bi bi-robot"></i> Clawdbot
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">ホーム</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="features.html">機能紹介</a></li>
-                    <li class="nav-item"><a class="nav-link" href="guide.html">使い方ガイド</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="../index.html">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active" href="features.html">機能</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="guide.html">ガイド</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-dark rounded-pill px-4 btn-sm" href="https://github.com/miki-826/clawdbot-info-site" target="_blank">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container py-5">
-        <div class="text-center mb-5 py-5 animate__animated animate__fadeIn">
-            <h1 class="display-4 fw-bold mb-3">Clawdbotの多彩な機能</h1>
-            <p class="lead text-muted">チャットの枠を超え、あなたのコンピューティング環境とシームレスに融合します。</p>
+    <header class="py-5 mt-5 text-center">
+        <div class="container">
+            <h1 class="display-3 fw-black mb-3 animate__animated animate__fadeIn">すべてを「自動化」する力</h1>
+            <p class="lead text-muted mx-auto" style="max-width: 700px;">Clawdbotは、従来のチャットボットが踏み込めなかった領域まで、あなたの代わりに手を動かします。</p>
         </div>
-        
-        <div class="row g-4 mb-5">
+    </header>
+
+    <main class="container py-5">
+        <div class="row g-4">
             <!-- Feature 1 -->
-            <div class="col-md-6">
-                <div class="card h-100 p-4 card-hover-effect rounded-4">
-                    <div class="feature-icon-wrapper">
-                        <i class="bi bi-terminal-fill"></i>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="feature-icon-wrapper mb-4">
+                        <i class="bi bi-terminal-fill fs-3 text-primary"></i>
                     </div>
-                    <h3 class="h4 fw-bold">システム操作 & 開発</h3>
-                    <p class="text-muted">自宅サーバーやローカルPCのファイルを直接操作。コードの作成からGitへのコミット、デプロイ作業まで一貫してサポートします。</p>
-                    <ul class="list-unstyled mt-3">
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>ファイル/ディレクトリの管理</li>
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>シェルコマンドの実行</li>
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>GitHub連携（PR作成、Issue管理）</li>
+                    <h4 class="fw-bold mb-3">システム開発 & 運用</h4>
+                    <p class="text-muted small">コードの生成から、ローカル環境でのビルド、テスト実行、GitHubへのデプロイまで、開発ライフサイクルをAIが自律的に回します。</p>
+                    <hr class="opacity-10 my-4">
+                    <ul class="list-unstyled small d-grid gap-2">
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>コードの読み取り・修正</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>シェルコマンドの自律実行</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>Gitワークフローの自動化</li>
                     </ul>
                 </div>
             </div>
+
             <!-- Feature 2 -->
-            <div class="col-md-6">
-                <div class="card h-100 p-4 card-hover-effect rounded-4">
-                    <div class="feature-icon-wrapper">
-                        <i class="bi bi-globe"></i>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="feature-icon-wrapper mb-4">
+                        <i class="bi bi-globe2 fs-3 text-primary"></i>
                     </div>
-                    <h3 class="h4 fw-bold">ブラウジング & 調査</h3>
-                    <p class="text-muted">あなたに代わってWebを検索し、必要な情報を収集・要約。複雑なフォーム入力やスクレイピングも可能です。</p>
-                    <ul class="list-unstyled mt-3">
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>リアルタイムWeb検索 (Brave API)</li>
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>特定サイトの情報抽出・要約</li>
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>自動ブラウザ操作</li>
+                    <h4 class="fw-bold mb-3">高度なWebブラウジング</h4>
+                    <p class="text-muted small">情報の検索だけでなく、ブラウザを直接操作してサイトのログイン、データの登録、特定要素のキャプチャなどを実行します。</p>
+                    <hr class="opacity-10 my-4">
+                    <ul class="list-unstyled small d-grid gap-2">
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>リアルタイムWEBリサーチ</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>対話的なUI操作の自動化</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>特定サイトの監視・要約</li>
                     </ul>
                 </div>
             </div>
+
             <!-- Feature 3 -->
-            <div class="col-md-6">
-                <div class="card h-100 p-4 card-hover-effect rounded-4">
-                    <div class="feature-icon-wrapper">
-                        <i class="bi bi-calendar-check-fill"></i>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="feature-icon-wrapper mb-4">
+                        <i class="bi bi-calendar3 fs-3 text-primary"></i>
                     </div>
-                    <h3 class="h4 fw-bold">ワークスペース管理</h3>
-                    <p class="text-muted">Google WorkspaceやNotionと連携。カレンダーの予定調整やドキュメントの作成を自動化します。</p>
-                    <ul class="list-unstyled mt-3">
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>Gmailの読み書き・整理</li>
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>カレンダーの予定管理</li>
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>Notionデータベースの更新</li>
+                    <h4 class="fw-bold mb-3">ワークスペース統合</h4>
+                    <p class="text-muted small">Googleカレンダー、Gmail、Notion、Slackなどの主要ツールと連携し、情報のハブとして機能します。</p>
+                    <hr class="opacity-10 my-4">
+                    <ul class="list-unstyled small d-grid gap-2">
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>予定の調整と通知</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>メールの整理と下書き作成</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>ドキュメントの自動生成</li>
                     </ul>
                 </div>
             </div>
+
             <!-- Feature 4 -->
-            <div class="col-md-6">
-                <div class="card h-100 p-4 card-hover-effect rounded-4">
-                    <div class="feature-icon-wrapper">
-                        <i class="bi bi-bell-fill"></i>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="feature-icon-wrapper mb-4">
+                        <i class="bi bi-shield-lock-fill fs-3 text-primary"></i>
                     </div>
-                    <h3 class="h4 fw-bold">常駐 & 通知</h3>
-                    <p class="text-muted">特定のイベントが発生した際に、あなたへ通知を送ります。また、定期的なタスク（cron）の設定も可能です。</p>
-                    <ul class="list-unstyled mt-3">
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>定期的なニュース・天気報告</li>
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>特定条件でのアラート通知</li>
-                        <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>メッセージプラットフォームへの常駐</li>
+                    <h4 class="fw-bold mb-3">セキュアな自己完結環境</h4>
+                    <p class="text-muted small">ClawdbotはあなたのサーバーやPC内で直接動作します。プライベートなデータを外部サーバーに送ることなく処理が可能です。</p>
+                    <hr class="opacity-10 my-4">
+                    <ul class="list-unstyled small d-grid gap-2">
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>ローカルデータの保護</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>認証情報の安全な管理</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>詳細な監査ログの生成</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="feature-icon-wrapper mb-4">
+                        <i class="bi bi-chat-quote-fill fs-3 text-primary"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">マルチチャネル対話</h4>
+                    <p class="text-muted small">DiscordやTelegramなど、お好みのUIから操作可能。まるで同僚に頼むような感覚で指示を出せます。</p>
+                    <hr class="opacity-10 my-4">
+                    <ul class="list-unstyled small d-grid gap-2">
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>主要チャットアプリ対応</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>TTSによる音声読み上げ</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>リッチなカード・ボタン操作</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="feature-icon-wrapper mb-4">
+                        <i class="bi bi-lightning-charge-fill fs-3 text-primary"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">常時稼働 & Cron</h4>
+                    <p class="text-muted small">あなたが寝ている間も、定期的なタスク（情報の収集、バックアップ、レポート作成）をバックグラウンドで遂行します。</p>
+                    <hr class="opacity-10 my-4">
+                    <ul class="list-unstyled small d-grid gap-2">
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>柔軟なスケジュール設定</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>毎朝のニュースレポート</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>異常検知時の即時通知</li>
                     </ul>
                 </div>
             </div>
@@ -104,32 +157,37 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer-modern mt-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h5 class="text-white fw-bold mb-4">🦞 Clawdbot</h5>
-                    <p class="small">Beyond Just Chatting. An agentic AI that lives in your infrastructure.</p>
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="brand-logo mb-4 text-white" href="../index.html">
+                        <i class="bi bi-robot"></i> Clawdbot
+                    </a>
+                    <p class="small opacity-50">
+                        Beyond the Chat. <br>
+                        Creating a future where AI and humans collaborate seamlessly.
+                    </p>
                 </div>
-                <div class="col-6 col-md-4">
-                    <h6 class="text-white fw-bold mb-3">リンク</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="../index.html" class="footer-link">ホーム</a></li>
-                        <li><a href="features.html" class="footer-link">機能紹介</a></li>
-                        <li><a href="guide.html" class="footer-link">使い方ガイド</a></li>
+                <div class="col-lg-2 offset-lg-2 col-6">
+                    <h6 class="text-white fw-bold mb-4">プロダクト</h6>
+                    <ul class="list-unstyled d-grid gap-2 small">
+                        <li><a href="features.html" class="text-decoration-none text-reset opacity-75">機能一覧</a></li>
+                        <li><a href="guide.html" class="text-decoration-none text-reset opacity-75">チュートリアル</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset opacity-75">ロードマップ</a></li>
                     </ul>
                 </div>
-                <div class="col-6 col-md-4">
-                    <h6 class="text-white fw-bold mb-3">リソース</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="https://github.com/miki-826/clawdbot-info-site" class="footer-link">GitHub Repository</a></li>
-                        <li><a href="#" class="footer-link">Documentation</a></li>
+                <div class="col-lg-2 col-6">
+                    <h6 class="text-white fw-bold mb-4">リソース</h6>
+                    <ul class="list-unstyled d-grid gap-2 small">
+                        <li><a href="https://github.com/miki-826/clawdbot-info-site" class="text-decoration-none text-reset opacity-75">GitHub</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset opacity-75">APIドキュメント</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset opacity-75">サポート</a></li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-5 border-secondary">
-            <div class="text-center small">
-                &copy; 2026 Clawdbot. Created with ❤️ by Clawdbot for miki-826
+            <div class="mt-5 pt-5 border-top border-secondary text-center small opacity-50">
+                &copy; 2026 Clawdbot. Made by Clawdbot with Agentic Power.
             </div>
         </div>
     </footer>

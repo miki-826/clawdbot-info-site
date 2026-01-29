@@ -3,194 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Clawdbot - あなたの代わりに「動く」次世代AIパーソナルアシスタント。ブラウザ操作、ファイル管理、GitHub連携など、あらゆるタスクを自動化します。">
-    <title>Clawdbot - あなただけのパーソナルAIアシスタント</title>
+    <meta name="description" content="Clawdbot - 次世代型AIエージェント。自律的にタスクを遂行し、あなたのワークフローを革新します。">
+    <title>Clawdbot | 次世代AIエージェント</title>
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code&display=swap" rel="stylesheet">
+    
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="./css/style.css">
+    
     <style>
-        .terminal-body {
-            padding: 24px;
-            min-height: 240px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
+        /* Component Specific Styles */
         .cursor {
             display: inline-block;
             width: 8px;
-            height: 18px;
+            height: 1.2em;
             background: #d4d4d4;
-            margin-left: 5px;
+            margin-left: 4px;
             vertical-align: middle;
             animation: blink 1s infinite;
         }
         @keyframes blink { 50% { opacity: 0; } }
-        .command-text { color: #b5cea8; }
-        .output-text { color: #9cdcfe; white-space: pre-wrap; }
         
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
+        .typewriter-text { font-family: 'Fira Code', monospace; font-size: 0.95rem; }
+        .cmd-prompt { color: #50fa7b; font-weight: bold; }
+        .cmd-text { color: #f8f8f2; }
+        .cmd-output { color: #8be9fd; white-space: pre-wrap; margin-top: 8px; border-left: 2px solid rgba(139, 233, 253, 0.3); padding-left: 15px; }
+
+        .hover-lift { transition: transform 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); }
+
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            color: white;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg nav-custom sticky-top">
         <div class="container">
-            <a class="navbar-brand animate__animated animate__fadeInLeft" href="index.html">🦞 Clawdbot</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="brand-logo" href="index.html">
+                <i class="bi bi-robot"></i> Clawdbot
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">ホーム</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/features.html">機能紹介</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/guide.html">使い方ガイド</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-danger rounded-pill px-4" href="https://github.com/miki-826/clawdbot-info-site" target="_blank"><i class="bi bi-github me-1"></i> GitHub</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="pages/features.html">機能</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="pages/guide.html">ガイド</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-dark rounded-pill px-4 btn-sm" href="https://github.com/miki-826/clawdbot-info-site" target="_blank">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-section">
-        <div class="container text-center">
-            <h1 class="display-3 fw-bolder animate__animated animate__zoomIn">未来のアシスタント、今ここに。</h1>
-            <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s opacity-75">Clawdbotは、あなたの代わりに「実行」するAIパーソナルアシスタントです。</p>
-            <div class="d-flex justify-content-center gap-3 mb-5 animate__animated animate__fadeInUp animate__delay-1s">
-                <a href="pages/features.html" class="btn btn-light btn-lg px-5 rounded-pill shadow-lg">機能を詳しく</a>
-                <a href="pages/guide.html" class="btn btn-outline-light btn-lg px-5 rounded-pill">使い方を見る</a>
+    <section class="hero-wrapper">
+        <div class="container">
+            <span class="hero-tag animate__animated animate__fadeInDown">NEW: v2.0 リリース</span>
+            <h1 class="hero-title animate__animated animate__fadeInUp">
+                AIは「話す」から<br>「実行する」ステージへ
+            </h1>
+            <p class="lead text-muted mb-5 mx-auto animate__animated animate__fadeInUp animate__delay-1s" style="max-width: 600px;">
+                Clawdbotは、ブラウザ、ファイルシステム、APIを自由に操り、あなたの指示を完遂する自律型AIアシスタントです。
+            </p>
+            
+            <div class="d-flex justify-content-center gap-3 animate__animated animate__fadeInUp animate__delay-1s">
+                <a href="pages/guide.html" class="btn-primary-custom">無料で始める</a>
+                <a href="pages/features.html" class="btn btn-outline-dark rounded-pill px-5 py-3 fw-bold">機能を見る</a>
             </div>
 
-            <!-- Interactive Terminal Simulation -->
+            <!-- Terminal Simulator -->
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="terminal-window animate__animated animate__fadeInUp animate__delay-2s">
-                        <div class="terminal-header p-3 d-flex align-items-center">
+                <div class="col-lg-10 col-xl-8">
+                    <div class="terminal-card animate__animated animate__fadeInUp animate__delay-2s text-start">
+                        <div class="terminal-header">
                             <div class="d-flex gap-2">
-                                <div class="dot red"></div>
-                                <div class="dot yellow"></div>
-                                <div class="dot green"></div>
+                                <div style="width:12px;height:12px;border-radius:50%;background:#ff5f56"></div>
+                                <div style="width:12px;height:12px;border-radius:50%;background:#ffbd2e"></div>
+                                <div style="width:12px;height:12px;border-radius:50%;background:#27c93f"></div>
                             </div>
-                            <span class="ms-3 small text-muted font-monospace">clawdbot — agent@pi: ~/workspace</span>
+                            <div class="small text-muted font-monospace opacity-50">clawdbot — main@agent</div>
                         </div>
-                        <div class="terminal-body text-start" id="terminal-content">
-                            <div><span class="text-success">$</span> <span id="typing-area"></span><span class="cursor"></span></div>
-                            <div id="output-area" class="mt-2"></div>
+                        <div class="p-4 typewriter-text" id="terminal-screen" style="min-height: 300px;">
+                            <div class="mb-2">
+                                <span class="cmd-prompt">pi@clawd:~$</span> 
+                                <span id="typing-area" class="cmd-text"></span><span class="cursor"></span>
+                            </div>
+                            <div id="output-area" class="cmd-output d-none"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main class="container py-5 mt-5">
-        <div class="row align-items-center py-5">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <h2 class="section-title h1">単なるチャットボットではありません</h2>
-                <p class="lead mb-4">Clawdbotは、ブラウザ操作、ファイル管理、外部API連携など、現実世界のタスクを直接実行する「エージェント型AI」です。</p>
-                <div class="d-flex gap-3 mb-3">
-                    <i class="bi bi-check-circle-fill text-danger fs-4"></i>
-                    <div>
-                        <h5>自律的なタスク遂行</h5>
-                        <p class="text-muted">指示の意図を汲み取り、必要なツールを組み合わせて実行します。</p>
-                    </div>
+    <!-- Features Preview -->
+    <section class="container py-5 mt-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-black display-5 mb-3">圧倒的な「遂行力」</h2>
+            <p class="text-muted">チャットだけでは終わらない、実社会へのアクション。</p>
+        </div>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon-wrapper mb-4">
+                    <i class="bi bi-browser-chrome fs-3 text-primary"></i>
                 </div>
-                <div class="d-flex gap-3">
-                    <i class="bi bi-check-circle-fill text-danger fs-4"></i>
-                    <div>
-                        <h5>マルチプラットフォーム</h5>
-                        <p class="text-muted">Discord, Signal, WhatsAppなど、お好みのツールで会話できます。</p>
-                    </div>
-                </div>
+                <h4>自律ブラウジング</h4>
+                <p class="text-muted">WEBサイトの巡回、情報の抽出、フォームの入力などをあなたの代わりに実行します。</p>
             </div>
-            <div class="col-lg-6 text-center">
-                <div class="p-5 bg-white rounded-5 shadow-lg position-relative overflow-hidden">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-danger opacity-0 hover-opacity-5 transition"></div>
-                    <div class="display-1 mb-3">🤖</div>
-                    <h4 class="fw-bold">24/7 Availability</h4>
-                    <p class="text-muted">あなたのサーバーで、いつでも指示を待っています。</p>
+            <div class="feature-card">
+                <div class="feature-icon-wrapper mb-4">
+                    <i class="bi bi-folder2-open fs-3 text-primary"></i>
+                </div>
+                <h4>ファイル・コード管理</h4>
+                <p class="text-muted">プロジェクトのファイルを読み書きし、バグの修正や新しい機能の実装を自動で行います。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrapper mb-4">
+                    <i class="bi bi-cpu fs-3 text-primary"></i>
+                </div>
+                <h4>マルチツール連携</h4>
+                <p class="text-muted">GitHub, Slack, Discordなど、既存のツールとシームレスに連携し、ハブとして機能します。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Clawdbot? -->
+    <section class="py-5" style="background: var(--bg-dark);">
+        <div class="container py-5 text-white">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-4 fw-bold mb-4">なぜ Clawdbot なのか？</h2>
+                    <p class="lead opacity-75 mb-5">
+                        従来のAIは情報を提供するだけでした。Clawdbotはインフラストラクチャに直接アクセスし、具体的な成果物を生成します。
+                    </p>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <div class="h2 fw-bold mb-1">99%</div>
+                                <div class="small opacity-50">Task Completion</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <div class="h2 fw-bold mb-1">24/7</div>
+                                <div class="small opacity-50">Always Online</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 mt-5 mt-lg-0">
+                    <div class="bg-white rounded-4 p-4 text-dark shadow-lg">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="bg-danger rounded-circle" style="width:12px;height:12px;"></div>
+                            <span class="fw-bold">ミッションログ: 進行中</span>
+                        </div>
+                        <div class="small border-start border-3 ps-3 mb-3">
+                            <div class="text-muted">10:45 AM</div>
+                            <div>GitHubリポジトリの解析を開始しました。</div>
+                        </div>
+                        <div class="small border-start border-3 ps-3 mb-3">
+                            <div class="text-muted">10:46 AM</div>
+                            <div>依存関係の脆弱性を3件特定。修正案を作成中。</div>
+                        </div>
+                        <div class="small border-start border-3 ps-3 border-danger">
+                            <div class="text-muted">10:48 AM</div>
+                            <div class="fw-bold">プルリクエストを送信しました。</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer-modern">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h5 class="text-white fw-bold mb-4">🦞 Clawdbot</h5>
-                    <p class="small">Beyond Just Chatting. An agentic AI that lives in your infrastructure.</p>
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="brand-logo mb-4 text-white" href="#">
+                        <i class="bi bi-robot"></i> Clawdbot
+                    </a>
+                    <p class="small opacity-50">
+                        Beyond the Chat. <br>
+                        Creating a future where AI and humans collaborate seamlessly.
+                    </p>
                 </div>
-                <div class="col-6 col-md-4">
-                    <h6 class="text-white fw-bold mb-3">リンク</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html" class="footer-link">ホーム</a></li>
-                        <li><a href="pages/features.html" class="footer-link">機能紹介</a></li>
-                        <li><a href="pages/guide.html" class="footer-link">使い方ガイド</a></li>
+                <div class="col-lg-2 offset-lg-2 col-6">
+                    <h6 class="text-white fw-bold mb-4">プロダクト</h6>
+                    <ul class="list-unstyled d-grid gap-2 small">
+                        <li><a href="pages/features.html" class="text-decoration-none text-reset opacity-75 hover-opacity-100">機能一覧</a></li>
+                        <li><a href="pages/guide.html" class="text-decoration-none text-reset opacity-75">チュートリアル</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset opacity-75">ロードマップ</a></li>
                     </ul>
                 </div>
-                <div class="col-6 col-md-4">
-                    <h6 class="text-white fw-bold mb-3">リソース</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="https://github.com/miki-826/clawdbot-info-site" class="footer-link">GitHub Repository</a></li>
-                        <li><a href="#" class="footer-link">Documentation</a></li>
+                <div class="col-lg-2 col-6">
+                    <h6 class="text-white fw-bold mb-4">リソース</h6>
+                    <ul class="list-unstyled d-grid gap-2 small">
+                        <li><a href="https://github.com/miki-826/clawdbot-info-site" class="text-decoration-none text-reset opacity-75">GitHub</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset opacity-75">APIドキュメント</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset opacity-75">サポート</a></li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-5 border-secondary">
-            <div class="text-center small">
-                &copy; 2026 Clawdbot. Created with ❤️ by Clawdbot for miki-826
+            <div class="mt-5 pt-5 border-top border-secondary text-center small opacity-50">
+                &copy; 2026 Clawdbot. Made by Clawdbot with Agentic Power.
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const terminalContent = [
-            { cmd: "clawdbot status", output: "Status: ONLINE\nAgent: Pi\nLocation: Tokyo, Japan\nMemory: Stable" },
-            { cmd: "web_search 'next-gen AI trends'", output: "Searching Brave... Found 5 key results.\n- Agentic AI workflows increasing\n- Multi-modal model efficiency\n- Local hosting growth" },
-            { cmd: "write report.md 'Daily Summary'", output: "File 'report.md' created successfully.\nContent: Added AI news and weather report." },
-            { cmd: "message send --target '#general' 'Check complete'", output: "Message delivered to Discord channel #general." }
+        const scenarios = [
+            { cmd: "clawdbot browser open 'https://github.com'", output: "Browser opened at github.com\nScanning for repository 'clawdbot'...\nFound. Navigation complete." },
+            { cmd: "exec 'npm test'", output: "PASS  tests/agent.test.ts\nPASS  tests/tools.test.ts\n\nTest Suites: 2 passed, 2 total\nTests:       15 passed, 15 total" },
+            { cmd: "message broadcast 'Update deployed'", output: "Target: [Discord, Slack, Signal]\nStatus: SUCCESS\nPayload delivered to 3 channels." }
         ];
 
-        let contentIndex = 0;
+        let index = 0;
         const typingArea = document.getElementById('typing-area');
         const outputArea = document.getElementById('output-area');
 
-        function typeCommand() {
-            const item = terminalContent[contentIndex];
-            let charIndex = 0;
+        function runTerminal() {
+            const item = scenarios[index];
+            let i = 0;
             typingArea.textContent = "";
-            outputArea.innerHTML = "";
+            outputArea.classList.add('d-none');
 
             const timer = setInterval(() => {
-                if (charIndex < item.cmd.length) {
-                    typingArea.textContent += item.cmd.charAt(charIndex);
-                    charIndex++;
+                if (i < item.cmd.length) {
+                    typingArea.textContent += item.cmd.charAt(i);
+                    i++;
                 } else {
                     clearInterval(timer);
                     setTimeout(() => {
-                        outputArea.innerHTML = `<pre class="output-text mb-0">${item.output}</pre>`;
-                        contentIndex = (contentIndex + 1) % terminalContent.length;
-                        setTimeout(typeCommand, 3000);
-                    }, 800);
+                        outputArea.textContent = item.output;
+                        outputArea.classList.remove('d-none');
+                        index = (index + 1) % scenarios.length;
+                        setTimeout(runTerminal, 4000);
+                    }, 600);
                 }
-            }, 70);
+            }, 50);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(typeCommand, 2000);
+            setTimeout(runTerminal, 1500);
         });
     </script>
 </body>

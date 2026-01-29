@@ -4,178 +4,219 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Clawdbotの導入方法と活用ガイド。初心者から上級者まで。">
-    <title>使い方ガイド - Clawdbot</title>
+    <title>ガイド | Clawdbot</title>
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code&display=swap" rel="stylesheet">
+    
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+        }
+        .guide-nav-sticky {
+            position: sticky;
+            top: 100px;
+        }
+        .code-title {
+            background: #212130;
+            color: #a4b0be;
+            padding: 8px 16px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            font-size: 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-light">
 
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg nav-custom sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">🦞 Clawdbot</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="brand-logo" href="../index.html">
+                <i class="bi bi-robot"></i> Clawdbot
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">ホーム</a></li>
-                    <li class="nav-item"><a class="nav-link" href="features.html">機能紹介</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="guide.html">使い方ガイド</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="../index.html">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="features.html">機能</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active" href="guide.html">ガイド</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-dark rounded-pill px-4 btn-sm" href="https://github.com/miki-826/clawdbot-info-site" target="_blank">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container py-5">
-        <div class="text-center mb-5 py-5 animate__animated animate__fadeIn">
-            <h1 class="display-4 fw-bold mb-3">導入・活用ガイド</h1>
-            <p class="lead text-muted">Clawdbotをあなたの環境に構築し、最大限に活用するためのステップです。</p>
+    <header class="py-5 mt-5">
+        <div class="container text-center">
+            <h1 class="display-3 fw-black mb-3">使い始める。</h1>
+            <p class="lead text-muted">Clawdbotをあなたの環境に構築し、AIの力を解放するためのステップバイステップガイド。</p>
         </div>
-        
+    </header>
+
+    <main class="container py-5">
         <div class="row g-5">
-            <div class="col-lg-8 mx-auto">
-                <!-- Getting Started -->
-                <section class="mb-5">
-                    <h2 class="section-title h3 mb-4">詳細な導入ステップ</h2>
-                    
-                    <div class="step-card mb-4 animate__animated animate__fadeInLeft">
-                        <div class="d-flex align-items-center mb-3">
-                            <span class="badge bg-danger rounded-pill me-2">STEP 01</span>
-                            <h4 class="mb-0 fw-bold">インストールと起動</h4>
-                        </div>
-                        <p>ClawdbotはNode.js環境で動作します。端末（ターミナル）で以下のコマンドを実行して起動します。</p>
-                        <div class="code-block mt-3">
-                            <button class="btn btn-sm btn-outline-light copy-btn">Copy</button>
-                            <code class="text-info"># Clawdbotを起動する</code><br>
-                            <code>clawdbot gateway start</code><br><br>
-                            <code class="text-info"># ステータスを確認する</code><br>
-                            <code>clawdbot status</code>
-                        </div>
-                    </div>
-
-                    <div class="step-card mb-4 animate__animated animate__fadeInLeft animate__delay-1s">
-                        <div class="d-flex align-items-center mb-3">
-                            <span class="badge bg-danger rounded-pill me-2">STEP 02</span>
-                            <h4 class="mb-0 fw-bold">プロバイダーの設定</h4>
-                        </div>
-                        <p>Discordなどのチャットツールと連携させるために、設定ファイル（config）を編集します。コマンドで直接設定することも可能です。</p>
-                        <div class="code-block mt-3">
-                            <button class="btn btn-sm btn-outline-light copy-btn">Copy</button>
-                            <code class="text-info"># Discordを有効にする例</code><br>
-                            <code>clawdbot config set discord.enabled true</code>
-                        </div>
-                    </div>
-
-                    <div class="step-card mb-4 animate__animated animate__fadeInLeft animate__delay-2s">
-                        <div class="d-flex align-items-center mb-3">
-                            <span class="badge bg-danger rounded-pill me-2">STEP 03</span>
-                            <h4 class="mb-0 fw-bold">AIモデルの選択</h4>
-                        </div>
-                        <p>使用するAI（GeminiやClaudeなど）を設定します。APIキーをセットすることで、Clawdbotが思考を開始します。</p>
-                    </div>
-                </section>
-
-                <!-- Costs -->
-                <section class="mb-5 py-4 px-4 bg-white rounded-4 shadow-sm border-start border-warning border-5">
-                    <h3 class="fw-bold mb-3"><i class="bi bi-currency-dollar text-warning"></i> 気になるコストについて</h3>
-                    <p>Clawdbot自体の利用はオープンソースのため無料ですが、以下の外部コストが発生する場合があります：</p>
-                    <div class="row mt-3">
-                        <div class="col-md-4 mb-3">
-                            <div class="p-3 bg-light rounded-3 text-center h-100">
-                                <i class="bi bi-cpu fs-2 text-muted"></i>
-                                <h6 class="mt-2 fw-bold">AI API利用料</h6>
-                                <p class="small mb-0 text-muted">Gemini, Claude等の従量課金</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="p-3 bg-light rounded-3 text-center h-100">
-                                <i class="bi bi-lightning-charge fs-2 text-muted"></i>
-                                <h6 class="mt-2 fw-bold">サーバー維持費</h6>
-                                <p class="small mb-0 text-muted">24時間稼働の電気代など</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="p-3 bg-light rounded-3 text-center h-100">
-                                <i class="bi bi-plug fs-2 text-muted"></i>
-                                <h6 class="mt-2 fw-bold">外部ツール</h6>
-                                <p class="small mb-0 text-muted">Notion等の有料プラン等</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mt-3 small text-muted"><i class="bi bi-info-circle me-1"></i> Geminiなどの無料枠を活用することで、コストを最小限に抑えることも可能です。</p>
-                </section>
-
-                <!-- Prompt Examples -->
-                <section class="mb-5">
-                    <h2 class="section-title h3 mb-4">便利な指示の例</h2>
-                    <div class="list-group list-group-flush shadow-sm rounded-4 overflow-hidden border">
-                        <div class="list-group-item p-4">
-                            <div class="d-flex align-items-center mb-2">
-                                <i class="bi bi-search text-danger me-2"></i>
-                                <h6 class="mb-0 fw-bold">調査の依頼</h6>
-                            </div>
-                            <p class="mb-0 text-muted font-monospace bg-light p-2 rounded small">「最新のAIニュースを3つピックアップして、専門用語を抜きにして要約して。」</p>
-                        </div>
-                        <div class="list-group-item p-4">
-                            <div class="d-flex align-items-center mb-2">
-                                <i class="bi bi-folder2-open text-danger me-2"></i>
-                                <h6 class="mb-0 fw-bold">ファイル整理</h6>
-                            </div>
-                            <p class="mb-0 text-muted font-monospace bg-light p-2 rounded small">「Downloadsフォルダにある昨日のPDFファイルを、プロジェクト名のフォルダに移動させて。」</p>
-                        </div>
-                        <div class="list-group-item p-4">
-                            <div class="d-flex align-items-center mb-2">
-                                <i class="bi bi-code-slash text-danger me-2"></i>
-                                <h6 class="mb-0 fw-bold">開発サポート</h6>
-                            </div>
-                            <p class="mb-0 text-muted font-monospace bg-light p-2 rounded small">「このHTMLファイルに、ダークモード切り替えボタンを追加するスクリプトを書いて。」</p>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="p-5 pro-tips-section shadow-lg text-center rounded-4">
-                    <h3 style="color: var(--accent-color);">さらに使いこなすには</h3>
-                    <p>具体的な指示を出すほど、Clawdbotは正確に動きます。指示に迷ったら「何ができる？」と聞いてみてください。</p>
-                    <a href="../index.html" class="btn btn-outline-light rounded-pill px-4 mt-3">トップへ戻る</a>
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="guide-nav-sticky">
+                    <h6 class="fw-bold mb-4">セクション</h6>
+                    <nav id="guide-sidebar" class="nav flex-column gap-2 small">
+                        <a class="nav-link p-0 text-dark opacity-50 hover-opacity-100" href="#getting-started">導入ステップ</a>
+                        <a class="nav-link p-0 text-dark opacity-50 hover-opacity-100" href="#configuration">詳細設定</a>
+                        <a class="nav-link p-0 text-dark opacity-50 hover-opacity-100" href="#prompting">プロンプト例</a>
+                        <a class="nav-link p-0 text-dark opacity-50 hover-opacity-100" href="#cost">コストとモデル</a>
+                    </nav>
                 </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="col-lg-9">
+                <!-- Getting Started -->
+                <section id="getting-started" class="mb-5">
+                    <h2 class="fw-bold mb-5 h3">1. 導入ステップ</h2>
+                    
+                    <div class="feature-card mb-4">
+                        <div class="step-number">1</div>
+                        <h4 class="fw-bold">インストール</h4>
+                        <p class="text-muted">ClawdbotはNode.jsで動作します。まずはnpmを使用してグローバルにインストールします。</p>
+                        <div class="mt-4">
+                            <div class="code-title">Terminal</div>
+                            <div class="code-block" style="border-top-left-radius:0; border-top-right-radius:0;">
+                                <code>npm install -g clawdbot</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card mb-4">
+                        <div class="step-number">2</div>
+                        <h4 class="fw-bold">ゲートウェイの起動</h4>
+                        <p class="text-muted">サービス本体を起動します。これによりAIエージェントがアクティブになります。</p>
+                        <div class="mt-4">
+                            <div class="code-title">Terminal</div>
+                            <div class="code-block" style="border-top-left-radius:0; border-top-right-radius:0;">
+                                <code>clawdbot gateway start</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="step-number">3</div>
+                        <h4 class="fw-bold">認証の設定</h4>
+                        <p class="text-muted">使用するAIモデル（Gemini, Claude等）のAPIキーを設定します。</p>
+                        <div class="mt-4">
+                            <div class="code-title">Terminal</div>
+                            <div class="code-block" style="border-top-left-radius:0; border-top-right-radius:0;">
+                                <code>clawdbot config set model.apiKey 'YOUR_API_KEY'</code>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="my-5 opacity-5">
+
+                <!-- Configuration -->
+                <section id="configuration" class="mb-5">
+                    <h2 class="fw-bold mb-5 h3">2. 外部ツールとの連携</h2>
+                    <p class="text-muted mb-4">ClawdbotはDiscordやSlackをインターフェースとして使用できます。</p>
+                    
+                    <div class="bg-white p-4 rounded-4 shadow-sm border">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <i class="bi bi-discord fs-3 text-primary"></i>
+                            <h5 class="mb-0 fw-bold">Discord連携</h5>
+                        </div>
+                        <p class="small text-muted">Botトークンを取得し、以下のコマンドで設定を反映させます。即座にサーバーでClawdbotが応答を開始します。</p>
+                        <div class="code-block mt-3 small">
+                            <code>clawdbot config set discord.enabled true</code><br>
+                            <code>clawdbot config set discord.token '...'</code>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="my-5 opacity-5">
+
+                <!-- Prompts -->
+                <section id="prompting" class="mb-5">
+                    <h2 class="fw-bold mb-5 h3">3. 指示を出してみる</h2>
+                    <p class="text-muted mb-4">チャット欄で、まるで部下や同僚に頼むように指示を投げてください。</p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 border hover-lift h-100">
+                                <div class="badge bg-light text-primary mb-3">リサーチ</div>
+                                <h6 class="fw-bold">「今日のテック系ニュースを要約して」</h6>
+                                <p class="small text-muted mb-0">Webを検索し、重要な情報をまとめて報告します。</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 border hover-lift h-100">
+                                <div class="badge bg-light text-primary mb-3">開発</div>
+                                <h6 class="fw-bold">「このファイルをTypeScript化して」</h6>
+                                <p class="small text-muted mb-0">ファイルを直接読み書きし、コードのリファクタリングを行います。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer-modern mt-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h5 class="text-white fw-bold mb-4">🦞 Clawdbot</h5>
-                    <p class="small">Beyond Just Chatting. An agentic AI that lives in your infrastructure.</p>
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="brand-logo mb-4 text-white" href="../index.html">
+                        <i class="bi bi-robot"></i> Clawdbot
+                    </a>
+                    <p class="small opacity-50">
+                        Beyond the Chat. <br>
+                        Creating a future where AI and humans collaborate seamlessly.
+                    </p>
                 </div>
-                <div class="col-6 col-md-4">
-                    <h6 class="text-white fw-bold mb-3">リンク</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="../index.html" class="footer-link">ホーム</a></li>
-                        <li><a href="features.html" class="footer-link">機能紹介</a></li>
-                        <li><a href="guide.html" class="footer-link">使い方ガイド</a></li>
+                <div class="col-lg-2 offset-lg-2 col-6">
+                    <h6 class="text-white fw-bold mb-4">プロダクト</h6>
+                    <ul class="list-unstyled d-grid gap-2 small">
+                        <li><a href="features.html" class="text-decoration-none text-reset opacity-75">機能一覧</a></li>
+                        <li><a href="guide.html" class="text-decoration-none text-reset opacity-75">チュートリアル</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset opacity-75">ロードマップ</a></li>
                     </ul>
                 </div>
-                <div class="col-6 col-md-4">
-                    <h6 class="text-white fw-bold mb-3">リソース</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="https://github.com/miki-826/clawdbot-info-site" class="footer-link">GitHub Repository</a></li>
-                        <li><a href="#" class="footer-link">Documentation</a></li>
+                <div class="col-lg-2 col-6">
+                    <h6 class="text-white fw-bold mb-4">リソース</h6>
+                    <ul class="list-unstyled d-grid gap-2 small">
+                        <li><a href="https://github.com/miki-826/clawdbot-info-site" class="text-decoration-none text-reset opacity-75">GitHub</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset opacity-75">APIドキュメント</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset opacity-75">サポート</a></li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-5 border-secondary">
-            <div class="text-center small">
-                &copy; 2026 Clawdbot. Created with ❤️ by Clawdbot for miki-826
+            <div class="mt-5 pt-5 border-top border-secondary text-center small opacity-50">
+                &copy; 2026 Clawdbot. Made by Clawdbot with Agentic Power.
             </div>
         </div>
     </footer>
