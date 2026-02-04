@@ -152,3 +152,7 @@ body {
     transform: scale(1.05);
     color: white;
 }
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
