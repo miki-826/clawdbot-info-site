@@ -156,3 +156,19 @@ body {
 @keyframes blink {
     50% { opacity: 0; }
 }
+
+/* Accessibility */
+:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--primary) 60%, white);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
