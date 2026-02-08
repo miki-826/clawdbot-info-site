@@ -172,3 +172,50 @@ body {
         scroll-behavior: auto !important;
     }
 }
+
+/* Utilities */
+.fw-black { font-weight: 900; }
+
+/* Feature cards (used on /pages/*) */
+.feature-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+/* /pages/* は .feature-card 単体で使うため padding を付与 */
+.feature-card:not(.card) { padding: 2rem; }
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow: 0 22px 50px rgba(2, 6, 23, 0.12);
+}
+
+.feature-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.14), rgba(236, 72, 153, 0.08));
+    border: 1px solid rgba(99, 102, 241, 0.18);
+}
+
+/* Footer */
+.footer-modern {
+    background: radial-gradient(1200px 500px at 30% 10%, rgba(99, 102, 241, 0.25), transparent),
+                radial-gradient(900px 500px at 80% 60%, rgba(236, 72, 153, 0.18), transparent),
+                linear-gradient(180deg, var(--bg-dark), var(--bg-darker));
+    color: rgba(255, 255, 255, 0.86);
+    padding: 80px 0 50px;
+}
+.footer-modern a:hover { opacity: 1 !important; }
+
+/* Nav active state */
+.nav-custom .nav-link.active {
+    font-weight: 700;
+    color: var(--bg-dark) !important;
+}
